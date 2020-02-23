@@ -5,8 +5,8 @@ import logger from 'morgan';
 import mongoose from 'mongoose';
 import SourceMapSupport from 'source-map-support';
 import cors from 'cors';
-// import routess
 import mentorRoutes from './routes/mentor.route';
+
 // define our app using express
 const app = express();
 
@@ -36,7 +36,7 @@ mongoose.connect('mongodb+srv://test1:test1@cluster0-m0k4g.mongodb.net/test?retr
 
 SourceMapSupport.install();
 
-app.use('/api/mentor', mentorRoutes);
+app.use('/api', mentorRoutes);
 app.get('/', (req,res) => {
   return res.end('Api working');
 })
